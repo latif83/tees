@@ -1,0 +1,159 @@
+
+<style>
+    .car-cover{
+        width:10em;
+    }
+    .car-item .col-auto{
+        max-width: calc(100% - 12em) !important;
+    }
+    .car-item:hover{
+        transform:translate(0, -4px);
+        background:#a5a5a521;
+    }
+    .banner-img-holder{
+        height:25vh !important;
+        width: calc(100%);
+        overflow: hidden;
+    }
+    .banner-img{
+        object-fit:scale-down;
+        height: calc(100%);
+        width: calc(100%);
+        transition:transform .3s ease-in;
+    }
+    .car-item:hover .banner-img{
+        transform:scale(1.3)
+    }
+</style>
+<!-- <?php if(!isset($_GET['q'])): ?> -->
+<h2 id="vehicles" class="my-5"> Vehicles Available </h2>
+<!-- <?php else: ?> -->
+<!-- <h1 class="mt-2">Search Result for <b>"<?= $_GET['q'] ?>"</b> keyword.</h1> -->
+<!-- <?php endif; ?> -->
+<div class="card card-outline card-primary shadow">
+    <div class="card-body">
+        <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+            <!-- <?php 
+                $search = "";
+                if(isset($_GET['q'])){
+                    $search = " and (c.product_title LIKE '%{$_GET['q']}%' OR c.description LIKE '%{$_GET['q']}%' or cc.name LIKE '%{$_GET['q']}%' or b.name LIKE '%{$_GET['q']}%') ";
+                }
+                $cars = $conn->query("SELECT c.*,b.name as brand, b.image_path as brand_img, cc.name as cat_name, cc.description as car_desc FROM `car_list` c inner join brand_list b on b.id = c.brand_id inner join category_list cc on cc.id = c.category_id where c.`status` = 0 {$search} order by unix_timestamp(c.date_created) desc");
+                while($row = $cars->fetch_assoc()):
+                    $row['description'] = strip_tags(html_entity_decode($row['description']));
+                    if(is_null($row['date_updated'])){
+                        $row['date_updated'] = strtotime($row['date_created']);
+                    }else{
+                        $row['date_updated'] = strtotime($row['date_updated']);
+                    }
+            ?> -->
+            <div class="p-2">
+            <a href="./?page=view_product&id=<?= $row['id'] ?>" class="card text-decoration-none text-dark car-item">
+                <div class="banner-img-holder">
+                    <img src="uploads/banners/car-2.png" alt="" class="img-top banner-img bg-gradient-dark">
+                </div>
+                <div class="card-body">
+                    <div class="col-12">
+                        <h5 class="text-dark">2020 F-150 Raptor</h5>
+                        <hr class="border-primary mb-0">
+                            <div>
+                                <span class="text-muted">Brand: Ford</span><br>
+                                <span class="text-muted">Category: Pickup Truck</span><br>
+                                <span class="text-muted"> GH₵250,000.00</span>
+                            </div>
+                        <p class='truncate-3'>
+                            <!-- <?= substr($row['description'],0,500) ?> -->
+                            The 2020 F-150 Raptor is a powerful and versatile pickup truck that's built for off-road adventures. With a high-strength, military-grade aluminum alloy body, Fox Racing Shox, and a 3.5L EcoBoost V6 engine that delivers 450 horsepower and 510 lb.-ft. of torque, the Raptor is capable of tackling any terrain with ease. Plus, it's packed with advanced technology features like Ford Co-Pilot360, a 360-degree camera with split-view display, and a voice-activated touchscreen navigation system. If you're looking for a pickup truck that can handle both work and play, the 2020 F-150 Raptor is an excellent choice.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            </div>
+
+            <div class="p-2">
+                <a href="./?page=view_product&id=<?= $row['id'] ?>" class="card text-decoration-none text-dark car-item">
+                    <div class="banner-img-holder">
+                        <img src="uploads/banners/car-3.png" alt="" class="img-top banner-img bg-gradient-dark">
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            <h5 class="text-dark">RS Turbo CVT Honda SENSING</h5>
+                            <hr class="border-primary mb-0">
+                                <div>
+                                    <span class="text-muted">Brand: Honda</span><br>
+                                    <span class="text-muted">Category: Sedan</span><br>
+                                    <span class="text-muted"> GH₵148,000.00</span>
+                                </div>
+                            <p class='truncate-3'>
+                                <!-- <?= substr($row['description'],0,500) ?> -->
+                                The Honda SEDAN RS Turbo CVT with Honda SENSING is a high-performance sedan designed for those who value both style and speed. With its turbocharged engine and continuously variable transmission, this car offers a smooth and exhilarating driving experience. The Honda SENSING technology provides added safety features such as adaptive cruise control and lane departure warning. This is the perfect car for drivers who want to make a statement on the road while enjoying a comfortable and safe ride.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                </div>
+
+                <div class="p-2">
+                    <a href="./?page=view_product&id=<?= $row['id'] ?>" class="card text-decoration-none text-dark car-item">
+                        <div class="banner-img-holder">
+                            <img src="uploads/banners/car-5.png" alt="" class="img-top banner-img bg-gradient-dark">
+                        </div>
+                        <div class="card-body">
+                            <div class="col-12">
+                                <h5 class="text-dark">Toyota Corolla Altis</h5>
+                                <hr class="border-primary mb-0">
+                                    <div>
+                                        <span class="text-muted">Brand: Toyota</span><br>
+                                        <span class="text-muted">Category: Sedan</span><br>
+                                        <span class="text-muted"> GH₵50,000.00</span>
+                                    </div>
+                                <p class='truncate-3'>
+                                    <!-- <?= substr($row['description'],0,500) ?> -->
+                                    The Toyota Corolla Altis is a popular and reliable sedan that has been a favorite among car buyers for many years. It offers a smooth and comfortable ride, with a spacious and well-appointed interior that includes advanced features such as touchscreen infotainment and climate control.
+
+                                    Under the hood, the Corolla Altis is powered by a fuel-efficient and responsive engine, making it an ideal choice for those who want a car that is both efficient and fun to drive. It also comes equipped with a range of advanced safety features, such as lane departure warning, automatic emergency braking, and adaptive cruise control, to help keep you and your passengers safe on the road.
+                                    
+                                    Overall, the Toyota Corolla Altis is an excellent choice for anyone looking for a dependable, stylish, and comfortable sedan that offers great value for money.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                    <div class="p-2">
+                        <a href="./?page=view_product&id=<?= $row['id'] ?>" class="card text-decoration-none text-dark car-item">
+                            <div class="banner-img-holder">
+                                <img src="uploads/banners/car-7.png" alt="" class="img-top banner-img bg-gradient-dark">
+                            </div>
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <h5 class="text-dark">2016 Honda Civic</h5>
+                                    <hr class="border-primary mb-0">
+                                        <div>
+                                            <span class="text-muted">Brand: Honda</span><br>
+                                            <span class="text-muted">Category: Sedan</span><br>
+                                            <span class="text-muted"> GH₵90,000.00</span>
+                                        </div>
+                                    <p class='truncate-3'>
+                                        <!-- <?= substr($row['description'],0,500) ?> -->
+                                        The 2016 Honda Civic is a well-rounded, fuel-efficient compact car that offers impressive performance, comfort, and style. This car has a sleek and modern exterior design that is sure to turn heads on the road. Inside, the Civic features a spacious and comfortable cabin with high-quality materials and plenty of advanced technology.
+
+                                        Under the hood, the 2016 Civic comes with a 2.0-liter four-cylinder engine that delivers a smooth and responsive ride. This engine is paired with either a six-speed manual or a continuously variable transmission (CVT) that provides excellent fuel economy.
+                                        
+                                        The Civic also boasts a range of impressive safety features, including a rearview camera, lane departure warning, and adaptive cruise control. These advanced safety features help to ensure that you and your passengers stay safe on the road.
+                                        
+                                        This particular 2016 Honda Civic has been gently used and meticulously maintained, with no technical faults or issues. It's the perfect choice for anyone looking for a reliable and stylish compact car that delivers exceptional performance and fuel efficiency.
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+            <!-- <?php endwhile; ?>
+            <?php if($cars->num_rows < 1): ?>
+                <center><span class="text-muted">No Car Listed Yet.</span></center>
+            <?php endif; ?> -->
+            </div>
+        </div>
+    </div>
+</div>

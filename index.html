@@ -1,0 +1,338 @@
+<?php require_once('./config.php'); ?>
+ <!DOCTYPE html>
+<html lang="en" class="" style="height: auto;">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800&display=swap');
+  *{
+    font-family: poppins;
+  }
+  #header{
+    height:60vh;
+    width:calc(100%);
+    position:relative;
+  }
+  #header:before{
+    content:"";
+    position:absolute;
+    height:calc(100%);
+    width:calc(100%);
+    background-image:url(uploads/cover-1638256498.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+  }
+
+  #header:after{
+    content:"";
+    position:absolute;
+    height:calc(100%);
+    width:calc(100%);
+    background-color: #00000063;
+  }
+
+  #header .container{
+    position: relative;
+    z-index: 1;
+  }
+
+  .marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-content p {
+  margin-right: 30px;
+  /* width: 100%; */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+</style>
+<!-- <?php require_once('inc/header.php') ?> -->
+<div class="header"></div>
+
+
+  <body class="layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto;">
+    <div class="wrapper">
+     <!-- <?php require_once('inc/topBarNav.php') ?> -->
+     <div class="topBarNav"></div>
+   
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper pt-4" style="min-height: 567.854px;">
+        <?php if($page == "home" || $page == "about_us"): ?>
+          <div id="header" class="shadow d-flex align-items-center">
+          <div class="container text-light">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Welcome to TEES AUTO</h1>
+      <p>Your destination for buying and selling cars hassle-free. No account needed, just search your preferred car, contact the owner, and drive home in your dream car!</p>
+    </div>
+    <div class="col-md-4">
+     
+    <form class="bg-warning p-2 rounded w-100" id="search-form">
+        <div class="form-group">
+          <label for="search">Search for your dream car</label>
+          <input type="search" placeholder="Search anything" class="form-control" id="search" name="q" value="" aria-label="Search">
+        </div>
+        
+        <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i> Search</button>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+          </div>
+
+          <?php
+
+          if(!isset($_GET['page']) && !isset($_GET['q'])){
+            ?>
+
+            <div class="container mt-5">
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <h2>Do you want to make a sale on a car?</h2>
+      <p>Are you a car owner or an individual wanting to make a car sale? Get in touch with us and let's publish your car on TEES AUTO!</p>
+    </div>
+    <div class="col-md-4">
+      <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#contactModal"><i class="fas fa-car"></i> Get in touch with us</a>
+    </div>
+  </div>
+</div>
+
+<div class="container bg-dark my-5 rounded p-2">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="banner">
+        <h2>We Have 1000+ Satisfied Customers and Counting!</h2>
+        <p>We believe the introduction of our web app will encourage even more people to find their perfect match at Tees Auto. Browse our selection today!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <?php
+          }
+
+          ?>
+
+
+        <?php endif; ?>
+        <!-- Main content -->
+        <section class="content ">
+          <div class="container cons">
+            <!-- <?php 
+              if(!file_exists($page.".php") && !is_dir($page)){
+                  include '404.html';
+              }else{
+                if(is_dir($page))
+                  include $page.'/index.php';
+                else
+                  include $page.'.php';
+
+              }
+            ?> -->
+          </div>
+        </section>
+
+
+        <!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Contact us on:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>You can contact us at email@example.com or by filling out the form below:</p>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input required placeholder="e.g Jonh Doe" type="text" class="form-control" id="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input required placeholder="e.g johndoe@gmail.com" type="email" class="form-control" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea required placeholder="I have a vehicle i want to sell" class="form-control" id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Testimonials</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="marquee">
+        <div class="marquee-content">
+          <div class="testimonial">
+            <p>"I bought my first car from Tees Auto and it was a great experience! The staff was very helpful and I got a great deal. Thanks, Tees Auto!"</p>
+            <p>- Kwame, Accra, Ghana</p>
+          </div>
+          <div class="testimonial">
+            <p>"I found the car of my dreams on Tees Auto's website and the process of purchasing it was smooth and hassle-free. I highly recommend this site!"</p>
+            <p>- Jessica, Kumasi, Ghana</p>
+          </div>
+          <div class="testimonial">
+            <p>"I live abroad but was able to purchase a car from Tees Auto for my aunt in Ghana thanks to their excellent customer service. They helped me with everything I needed to make the process easy and convenient!"</p>
+            <p>- Michael, London, UK</p>
+          </div>
+          <div class="testimonial">
+            <p>"Tees Auto has a great selection of cars and their prices are unbeatable. I will definitely be coming back for my next purchase!"</p>
+            <p>- Ahmed, Tamale, Ghana</p>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-2 py-4 text-light rounded" style="background-color: #1A4640;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="banner">
+        <h2>Explore the Niilano Marketplace!</h2>
+        <p>Find your dream home, car, or something unique on our platform for buying, selling, and renting. With thousands of listings and a user-friendly interface, we make it easy to find what you're looking for. Start exploring today!</p>
+        <a href="https://niilano.com" target="_blank" class="btn btn-primary">Visit Niilano</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container my-4 bg-warning rounded p-2 py-4">
+      <h2 class="my-3">Find Us on Google Maps</h2>
+      <iframe class="w-100 rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.270305520374!2d-0.24130252550892176!3d5.674007132452783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9f7a3157f69f%3A0x16cd6b00f6799de5!2sTees%20Autos%20Garage!5e0!3m2!1sen!2sgh!4v1682796645921!5m2!1sen!2sgh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</div>
+
+
+        <!-- /.content -->
+  <div class="modal fade" id="confirm_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+      </div>
+      <div class="modal-body">
+        <div id="delete_content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="uni_modal_right" role='dialog'>
+    <div class="modal-dialog modal-full-height  modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="fa fa-arrow-right"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewer_modal" role='dialog'>
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+              <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
+              <img src="" alt="">
+      </div>
+    </div>
+  </div>
+      </div>
+      <!-- /.content-wrapper -->
+      <?php require_once('inc/footer.php') ?>
+
+      <div class="footer"></div>
+
+      <script>
+        $(function () {
+               $.get(`inc/header.html`, function (data) {
+                   $(".header").html(data);
+               });
+           });
+
+           $(function () {
+               $.get(`inc/topBarNav.html`, function (data) {
+                   $(".topBarNav").html(data);
+               });
+           });
+
+           $(function () {
+               $.get(`inc/footer.html`, function (data) {
+                   $(".footer").html(data);
+               });
+           });
+
+           $(function () {
+               $.get(`home.html`, function (data) {
+                   $(".cons").html(data);
+               });
+           });
+ 
+        $(function(){
+          $('#search-form').submit(function(e){
+            e.preventDefault()
+            if($('[name="q"]').val().length == 0)
+            location.href = './';
+            else
+            location.href = './?'+$(this).serialize();
+          })
+        })
+      </script>
+  </body>
+</html>
+
